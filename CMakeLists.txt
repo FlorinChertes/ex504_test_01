@@ -15,5 +15,5 @@ test/src/test_vector.cpp
 lib/inc/vector_t.h
 lib/src/vector_t.cpp
 
-usage/ex504_test_main.cxx)
+usage/ex504_test_main.cpp)
 
