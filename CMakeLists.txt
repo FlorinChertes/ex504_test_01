@@ -3,7 +3,10 @@ IF (MSVC)
    # Activate C++ exception handling 
    IF (NOT CMAKE_CXX_FLAGS MATCHES "/EHsc") 
    SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /EHsc") 
-   ENDIF () 
+   ENDIF ()
+ELSE()
+  SET(GCC_STD_CPP_11_COMPILE_FLAGS "-std=c++11")
+  SET( CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} ${GCC_STD_CPP_11_COMPILE_FLAGS}")
 ENDIF () 
 
 project (ex504_test_prj)
