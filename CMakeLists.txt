@@ -1,4 +1,11 @@
 cmake_minimum_required (VERSION 2.6)
+IF (MSVC) 
+   # Activate C++ exception handling 
+   IF (NOT CMAKE_CXX_FLAGS MATCHES "/EHsc") 
+   SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /EHsc") 
+   ENDIF () 
+ENDIF () 
+
 project (ex504_test_prj)
 
 set(INCLUDE_DIRS "test/inc" "lib/inc")
