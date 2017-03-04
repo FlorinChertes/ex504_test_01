@@ -20,7 +20,7 @@ void test_initialize_list_001()
 {
 	try
 	{
-		Vector v1 = { 1.2, 2.3, 3.4 };
+		Vector v1 = { 1.2, 2.3, 3.4, 5.5 };
 
 		for (int i = 0; i < v1.size(); ++i)
 		{
