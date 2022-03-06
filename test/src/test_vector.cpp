@@ -1,11 +1,16 @@
 
-#include <vector_t.h>
+#include "../../lib/inc/vector_t.h"
 
 #include <iostream>
 #include <stdexcept>
 
 #include <cmath>
 
+#include <gmock/gmock.h>
+#include <gtest/gtest.h>
+
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 double sqrt_sum(Vector& v)
 {
 	double sum = 0.0;
@@ -16,17 +21,20 @@ double sqrt_sum(Vector& v)
 	return sum;
 }
 
-void test_initialize_list_001()
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+TEST(VectorTest, test_initialize_list_001)
 {
 	try
 	{
 		Vector v1 = { 1.2, 2.3, 3.4, 5.5 };
-
+		double summ{ 0.0 };
 		for (int i = 0; i < v1.size(); ++i)
 		{
-			std::cout << v1[i] << std::endl;
+			summ += v1[i];
 		}
 
+		EXPECT_EQ(summ, 12.4);
 	}
 	catch (std::out_of_range&)
 	{
@@ -34,17 +42,18 @@ void test_initialize_list_001()
 	}
 }
 
-void test_vector()
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+TEST(VectorTest, test_vector_001)
 {
 	try 
 	{
-		std::cout << "test vector" << std::endl;
 		Vector vect(12);
-		std::cout << "vector size: " << vect.size() << std::endl;
+		EXPECT_EQ(vect.size(), 12);
 	}
 	catch (std::out_of_range&)
 	{
 		std::cout << "out_of_range exception" << std::endl;
 	}
-
 }
+
